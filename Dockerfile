@@ -6,7 +6,7 @@ FROM shadowsocks/shadowsocks-libev:v3.3.5 AS dist
 COPY --from=builder /go/bin/v2ray-plugin /usr/bin/v2ray-plugin
 CMD exec ss-server \
     -s $SERVER_ADDR \
-    -p $SERVER_PORT \
+    -p 8080 \
     -k ${PASSWORD:-fuckthisshit} \
     -m aes-256-gcm \
     -t $TIMEOUT \
